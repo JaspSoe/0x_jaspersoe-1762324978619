@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-solana via-success to-twitter bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(#1A1B1F, #1A1B1F) padding-box,
+                linear-gradient(135deg, #9945FF, #14F195, #1DA1F2) border-box;
+    border: 2px solid transparent;
+  }
+
+  .glass {
+    @apply bg-white bg-opacity-5 backdrop-blur-lg border border-white border-opacity-10;
+  }
+
+  .bot-message {
+    @apply glass rounded-2xl p-4 mb-3 animate-in slide-in-from-left duration-300;
+  }
+
+  .user-message {
+    @apply bg-gradient-to-r from-solana to-purple-600 rounded-2xl p-4 mb-3 animate-in slide-in-from-right duration-300;
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.slide-in-from-left {
+  animation-name: slide-in-from-left;
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+.duration-300 {
+  animation-duration: 300ms;
+}
